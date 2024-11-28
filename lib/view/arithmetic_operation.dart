@@ -4,103 +4,128 @@ class ArithmeticView extends StatefulWidget {
   const ArithmeticView({super.key});
 
   @override
-  _ArithmeticViewState createState() => _ArithmeticViewState();
+  ArithmeticViewState createState() => ArithmeticViewState();
 }
 
-class _ArithmeticViewState extends State<ArithmeticView> {
-  final TextEditingController _num1Controller = TextEditingController();
-  final TextEditingController _num2Controller = TextEditingController();
-  String _result = "0";
+class ArithmeticViewState extends State<ArithmeticView> {
+  int _firstNumber = 0;
+  int _secondNumber = 0;
+  int _result = 0;
 
-  void _calculate(String operation) {
-    // Parse input values
-    double num1 = double.tryParse(_num1Controller.text) ?? 0;
-    double num2 = double.tryParse(_num2Controller.text) ?? 0;
-    double result;
-
-    // Perform the chosen operation
-    switch (operation) {
-      case '+':
-        result = num1 + num2;
-        break;
-      case '-':
-        result = num1 - num2;
-        break;
-      case '*':
-        result = num1 * num2;
-        break;
-      default:
-        result = 0;
-    }
-
-    // Update the result in the UI
-    setState(() {
-      _result = result.toString();
-    });
-  }
-
+// global key for form state
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text('Arithmetic Operations'),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        elevation: 0,
       ),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(8),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Form(
+          key: _formKey,
           child: Column(
             children: [
-              // Input field for first number
-              TextField(
-                controller: _num1Controller,
+              TextFormField(
+                onChanged: (value) {
+                  _firstNumber = int.tryParse(value) ?? 0;
+                },
                 keyboardType: TextInputType.number,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  hintText: 'Enter First No',
+                  labelText: 'Enter First No',
                 ),
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Enter first no';
+                  }
+                  return null;
+                },
               ),
-              const SizedBox(height: 8),
-
-              // Input field for second number
-              TextField(
-                controller: _num2Controller,
+              const SizedBox(
+                height: 8,
+              ),
+              TextFormField(
+                onChanged: (value) {
+                  _secondNumber = int.tryParse(value) ?? 0;
+                },
                 keyboardType: TextInputType.number,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Enter Second No',
                 ),
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Enter second no';
+                  }
+                  return null;
+                },
               ),
-              const SizedBox(height: 8),
-
-              // Display result
-              Text('Result: $_result', style: const TextStyle(fontSize: 20)),
-              const SizedBox(height: 8),
-
-              // Addition button
+              const SizedBox(
+                height: 8,
+              ),
+              Text(
+                'Result : $_result',
+                style: const TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.red,
+                ),
+              ),
+              const SizedBox(
+                height: 8,
+              ),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () => _calculate('+'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                  ),
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      setState(() {
+                        _result = _firstNumber + _secondNumber;
+                      });
+                    }
+                  },
                   child: const Text('Addition'),
                 ),
               ),
-              const SizedBox(height: 8),
-
-              // Subtraction button
+              const SizedBox(
+                height: 8,
+              ),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () => _calculate('-'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      _result = _firstNumber - _secondNumber;
+                    });
+                  },
                   child: const Text('Subtraction'),
                 ),
               ),
-              const SizedBox(height: 8),
-
-              // Multiplication button
+              const SizedBox(
+                height: 8,
+              ),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () => _calculate('*'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      _result = _firstNumber * _secondNumber;
+                    });
+                  },
                   child: const Text('Multiplication'),
                 ),
               ),

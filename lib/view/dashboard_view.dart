@@ -37,7 +37,7 @@ class DashboardView extends StatelessWidget {
                           builder: (context) => const ArithmeticView()),
                     );
                   },
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Icon(Icons.calculate, size: 24), // Icon for Arithmetic

@@ -1,6 +1,5 @@
-import 'package:first_flutter_project/view/dashboard_view.dart';
+import 'package:first_flutter_project/view/col_view.dart';
 import 'package:flutter/material.dart';
-
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -10,7 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Dashboard',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: const DashboardView(),
+      home: const ColumnView(),
     );
   }
 }
