@@ -13,16 +13,16 @@ class ColumnView extends StatelessWidget {
         color: Colors.yellow,
         child: const Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
-            Icon(
+          children: [
+            const Icon(
               Icons.star,
               size: 90,
             ),
-            Icon(
+            const Icon(
               Icons.star,
               size: 80,
             ),
-            Icon(
+            const Icon(
               Icons.star,
               size: 60,
             )
