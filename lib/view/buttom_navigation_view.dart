@@ -32,10 +32,10 @@ class _BottomNavigationViewState extends State<BottomNavigationView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Dashboard"),
+        title: const Text("Dashboard"),  
         centerTitle: true,
       ),
-      body: _screens[_selectedIndex], // Display selected screen
+      body: _screens[_selectedIndex], 
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,

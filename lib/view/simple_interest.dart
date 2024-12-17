@@ -80,7 +80,8 @@ class _SimpleInterestViewState extends State<SimpleInterestView> {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: _calculateSI,
-                  child: const Text('Calculate Simple Interest'),
+                  child: const Text('Calculate Simple Interest'
+                  ),
                 ),
               ),
             ],

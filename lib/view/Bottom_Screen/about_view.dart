@@ -8,7 +8,7 @@ class AboutView extends StatelessWidget {
     return const Center(
       child: Text(
         'About Screen',
-        style: TextStyle(fontSize: 24),
+        style: TextStyle(fontSize: 24,fontFamily: 'Montserrat Italic'),
       ),
     );
   }
