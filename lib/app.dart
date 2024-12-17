@@ -1,10 +1,4 @@
 import 'package:first_flutter_project/view/buttom_navigation_view.dart';
-import 'package:first_flutter_project/view/card_view.dart';
-import 'package:first_flutter_project/view/col_view.dart';
-import 'package:first_flutter_project/view/column_grid.dart';
-import 'package:first_flutter_project/view/datatable_view.dart';
-import 'package:first_flutter_project/view/practice.dart';
-import 'package:first_flutter_project/view/stack_view.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
@@ -15,7 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Dashboard',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: const ButtomNavigationView(),
+      home: const BottomNavigationView(),
     );
   }
 }

@@ -4,7 +4,7 @@ import 'simple_interest.dart';
 import 'area_of_circle.dart';
 
 class DashboardView extends StatelessWidget {
-  const DashboardView({Key? key}) : super(key: key);
+  const DashboardView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -40,9 +40,9 @@ class DashboardView extends StatelessWidget {
                   child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(Icons.calculate, size: 24), // Icon for Arithmetic
-                      const SizedBox(width: 12),
-                      const Text(
+                      Icon(Icons.calculate, size: 24), // Icon for Arithmetic
+                      SizedBox(width: 12),
+                      Text(
                         'Arithmetic operation',
                         style: TextStyle(
                           fontSize: 18,
