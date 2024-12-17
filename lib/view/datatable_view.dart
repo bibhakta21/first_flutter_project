@@ -54,7 +54,7 @@ class _DataTableScreenState extends State<DataTableView> {
         height: double.infinity,
         width: double.infinity,
         child: DataTable(
-          headingRowColor: MaterialStateColor.resolveWith(
+          headingRowColor: WidgetStateColor.resolveWith(
             (states) => Colors.amber,
           ),
           border: TableBorder.all(color: Colors.black),
